@@ -1,0 +1,178 @@
+{
+  "profile_id": "student_20240001",
+  "name": "张三",
+  "student_id": "202401001",
+  "created_at": "2024-09-15T10:00:00Z",
+  "updated_at": "2024-12-20T14:30:00Z",
+  "dimensions": {
+    "knowledge_mastery": {
+      "description": "知识掌握度（各知识点掌握情况）",
+      "overall_score": 72,
+      "topics": [
+        {
+          "topic_id": "topic_01",
+          "topic_name": "神经网络基础",
+          "score": 85,
+          "confidence": 0.9,
+          "last_assessed": "2024-12-18T09:00:00Z",
+          "sub_topics": {
+            "神经元模型": {"score": 90, "attempts": 5},
+            "激活函数": {"score": 88, "attempts": 4},
+            "前向传播": {"score": 82, "attempts": 6},
+            "损失函数": {"score": 80, "attempts": 3}
+          }
+        },
+        {
+          "topic_id": "topic_02",
+          "topic_name": "卷积神经网络",
+          "score": 78,
+          "confidence": 0.8,
+          "last_assessed": "2024-12-17T14:00:00Z",
+          "sub_topics": {
+            "卷积层": {"score": 82, "attempts": 4},
+            "池化层": {"score": 75, "attempts": 3},
+            "CNN架构": {"score": 70, "attempts": 2},
+            "应用领域": {"score": 85, "attempts": 3}
+          }
+        },
+        {
+          "topic_id": "topic_03",
+          "topic_name": "循环神经网络",
+          "score": 65,
+          "confidence": 0.7,
+          "last_assessed": "2024-12-16T11:00:00Z",
+          "sub_topics": {
+            "RNN原理": {"score": 68, "attempts": 3},
+            "LSTM": {"score": 60, "attempts": 2},
+            "GRU": {"score": 55, "attempts": 2},
+            "序列建模": {"score": 70, "attempts": 2}
+          }
+        },
+        {
+          "topic_id": "topic_04",
+          "topic_name": "Transformer",
+          "score": 55,
+          "confidence": 0.6,
+          "last_assessed": "2024-12-15T16:00:00Z",
+          "sub_topics": {
+            "自注意力机制": {"score": 50, "attempts": 2},
+            "多头注意力": {"score": 45, "attempts": 1},
+            "位置编码": {"score": 60, "attempts": 2},
+            "BERT/GPT": {"score": 65, "attempts": 1}
+          }
+        },
+        {
+          "topic_id": "topic_05",
+          "topic_name": "生成对抗网络",
+          "score": 60,
+          "confidence": 0.5,
+          "last_assessed": "2024-12-14T10:00:00Z",
+          "sub_topics": {
+            "GAN原理": {"score": 65, "attempts": 2},
+            "生成器": {"score": 55, "attempts": 1},
+            "判别器": {"score": 58, "attempts": 1},
+            "训练过程": {"score": 50, "attempts": 1},
+            "应用": {"score": 72, "attempts": 2}
+          }
+        }
+      ]
+    },
+    "learning_behavior": {
+      "description": "学习行为特征",
+      "study_pace": "moderate",
+      "average_session_duration_minutes": 45,
+      "preferred_study_time": "evening",
+      "content_type_preference": {
+        "video": 0.3,
+        "text": 0.4,
+        "interactive": 0.2,
+        "code_practice": 0.1
+      },
+      "completion_rate": 0.75,
+      "review_frequency": "weekly",
+      "note_taking_habit": "moderate",
+      "question_asking_frequency": "low"
+    },
+    "cognitive_level": {
+      "description": "认知层次评估（布鲁姆分类法）",
+      "current_level": "understanding",
+      "level_scores": {
+        "remember": 80,
+        "understand": 72,
+        "apply": 60,
+        "analyze": 45,
+        "evaluate": 30,
+        "create": 25
+      },
+      "last_updated": "2024-12-18T09:00:00Z"
+    },
+    "learning_style": {
+      "description": "学习风格（VARK模型）",
+      "visual": 0.35,
+      "auditory": 0.15,
+      "reading_writing": 0.40,
+      "kinesthetic": 0.10,
+      "dominant_style": "reading_writing"
+    },
+    "interest_profile": {
+      "description": "兴趣偏好",
+      "interests": [
+        { "topic": "计算机视觉", "score": 85 },
+        { "topic": "自然语言处理", "score": 70 },
+        { "topic": "强化学习", "score": 55 },
+        { "topic": "生成模型", "score": 60 },
+        { "topic": "机器人学", "score": 40 }
+      ],
+      "project_interest": "high",
+      "research_orientation": "applied"
+    },
+    "performance_history": {
+      "description": "历史表现记录",
+      "quiz_scores": [
+        { "quiz_id": "quiz_01", "score": 88, "date": "2024-09-20" },
+        { "quiz_id": "quiz_02", "score": 75, "date": "2024-10-05" },
+        { "quiz_id": "quiz_03", "score": 82, "date": "2024-10-25" },
+        { "quiz_id": "quiz_04", "score": 68, "date": "2024-11-10" },
+        { "quiz_id": "quiz_05", "score": 72, "date": "2024-11-28" },
+        { "quiz_id": "quiz_06", "score": 65, "date": "2024-12-15" }
+      ],
+      "assignment_scores": [
+        { "assignment_id": "hw_01", "score": 90, "date": "2024-09-30" },
+        { "assignment_id": "hw_02", "score": 78, "date": "2024-10-20" },
+        { "assignment_id": "hw_03", "score": 85, "date": "2024-11-08" },
+        { "assignment_id": "hw_04", "score": 70, "date": "2024-12-01" }
+      ],
+      "overall_grade": "B+",
+      "improvement_trend": "stable"
+    }
+  },
+  "learning_goals": [
+    "掌握 Transformer 架构的原理和实现",
+    "能够使用 PyTorch 实现常见的深度学习模型",
+    "完成一个基于 CNN 的图像分类课程项目"
+  ],
+  "weak_areas": [
+    "Transformer 中的多头注意力机制",
+    "LSTM/GRU 的门控机制数学推导",
+    "GAN 训练稳定性问题"
+  ],
+  "strength_areas": [
+    "神经网络基础概念",
+    "卷积神经网络的应用",
+    "损失函数的选择"
+  ],
+  "recommended_resources": [
+    {
+      "type": "video",
+      "title": "Transformer 原理详解",
+      "url": "https://example.com/transformer-video",
+      "reason": "针对学生在 Transformer 方面的薄弱环节"
+    },
+    {
+      "type": "article",
+      "title": "LSTM 数学推导完整解析",
+      "url": "https://example.com/lstm-derivation",
+      "reason": "帮助学生理解门控机制的推导过程"
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "quiz_id": "quiz_transformer_001",  "title": "Transformer 自注意力机制练习题",
+  "description": "针对 Transformer 知识点中自注意力机制和多头注意力的掌握检测",
+  "generated_at": "2024-12-20T10:00:00Z",
+  "target_student_id": "student_20240001",
+  "difficulty": "medium",
+  "estimated_time_minutes": 20,
+  "questions": [
+    {
+      "question_id": "q1",
+      "type": "multiple_choice",
+      "difficulty": "easy",
+      "knowledge_point": "自注意力机制",
+      "question": "在缩放点积注意力中，为什么需要对点积结果进行缩放（除以 √d_k）？",
+      "options": [
+        {"label": "A", "text": "为了减小计算量"},
+        {"label": "B", "text": "为了防止点积结果过大导致 softmax 梯度消失"},
+        {"label": "C", "text": "为了满足注意力权重之和为 1 的约束"},
+        {"label": "D", "text": "为了提高模型的收敛速度"}
+      ],
+      "correct_answer": "B",
+      "explanation": "当 d_k 较大时，点积结果的绝对值可能很大，导致 softmax 函数进入梯度很小的饱和区，造成梯度消失。除以 √d_k 可以将点积结果标准化，缓解这一问题。",
+      "score": 10
+    },
+    {
+      "question_id": "q2",
+      "type": "multiple_choice",
+      "difficulty": "medium",
+      "knowledge_point": "多头注意力",
+      "question": "在多头注意力机制中，假设 d_model=512，头数 h=8，则每个头的维度 d_k 是多少？",
+      "options": [
+        {"label": "A", "text": "64"},
+        {"label": "B", "text": "128"},
+        {"label": "C", "text": "256"},
+        {"label": "D", "text": "512"}
+      ],
+      "correct_answer": "A",
+      "explanation": "多头注意力中，d_k = d_model / h = 512 / 8 = 64。每个头独立计算注意力，最后将各头的输出拼接并通过线性层映射回 d_model 维度。",
+      "score": 10
+    },
+    {
+      "question_id": "q3",
+      "type": "true_false",
+      "difficulty": "easy",
+      "knowledge_point": "位置编码",
+      "question": "Transformer 中的正弦位置编码是可以训练的（可学习的）。",
+      "correct_answer": false,
+      "explanation": "Transformer 原论文中使用的是固定的正弦/余弦位置编码，不需要训练。但后续的模型（如 BERT）使用了可学习的位置编码。两种方案各有优劣。",
+      "score": 5
+    },
+    {
+      "question_id": "q4",
+      "type": "code_completion",
+      "difficulty": "hard",
+      "knowledge_point": "自注意力机制实现",
+      "question": "请补全以下缩放点积注意力的实现代码：",
+      "code_template": "def scaled_dot_product_attention(Q, K, V, mask=None):\n    d_k = Q.size(-1)\n    # 请补全：计算注意力分数\n    scores = _____\n    if mask is not None:\n        scores = scores.masked_fill(mask == 0, -1e9)\n    # 请补全：softmax 归一化\n    attn_weights = _____\n    # 请补全：加权求和\n    output = _____\n    return output, attn_weights",
+      "blanks": [
+        {
+          "blank_id": "b1",
+          "answer": "torch.matmul(Q, K.transpose(-2, -1)) / torch.sqrt(torch.tensor(d_k, dtype=torch.float))",
+          "alternative_answers": [
+            "Q @ K.transpose(-2,-1) / math.sqrt(d_k)",
+            "torch.bmm(Q, K.transpose(1,2)) / sqrt(d_k)"
+          ]
+        },
+        {
+          "blank_id": "b2",
+          "answer": "F.softmax(scores, dim=-1)",
+          "alternative_answers": [
+            "torch.softmax(scores, dim=-1)",
+            "F.softmax(scores, dim=-1)"
+          ]
+        },
+        {
+          "blank_id": "b3",
+          "answer": "torch.matmul(attn_weights, V)",
+          "alternative_answers": [
+            "attn_weights @ V",
+            "torch.bmm(attn_weights, V)"
+          ]
+        }
+      ],
+      "explanation": "缩放点积注意力的三步：1) 计算 Q 和 K 的点积并缩放；2) 对分数进行 softmax 归一化得到注意力权重；3) 用注意力权重对 V 进行加权求和。",
+      "score": 25
+    },
+    {
+      "question_id": "q5",
+      "type": "short_answer",
+      "difficulty": "medium",
+      "knowledge_point": "BERT vs GPT",
+      "question": "请简要说明 BERT 和 GPT 在架构设计上的主要区别（至少列出两点）。",
+      "reference_answer": "1) BERT 基于 Transformer Encoder（双向注意力），GPT 基于 Transformer Decoder（单向因果注意力）；2) BERT 预训练使用 MLM 和 NSP 任务，GPT 使用自回归语言模型任务；3) BERT 擅长理解类任务，GPT 擅长生成类任务。",
+      "grading_rubric": {
+        "full_score": 20,
+        "criteria": [
+          {"point": "提到双向 vs 单向", "score": 8},
+          {"point": "提到预训练任务差异", "score": 7},
+          {"point": "提到应用场景差异", "score": 5}
+        ]
+      }
+    },
+    {
+      "question_id": "q6",
+      "type": "calculation",
+      "difficulty": "hard",
+      "knowledge_point": "注意力计算",
+      "question": "给定 Q = [[1, 0, 1], [0, 1, 0]]，K = [[1, 0, 0], [0, 1, 1]]，V = [[2, 1], [1, 3]]，d_k = 3。请计算缩放点积注意力输出（保留 2 位小数）。",
+      "step_by_step_solution": {
+        "step1": "计算 Q @ K^T = [[1, 1], [0, 1]]",
+        "step2": "缩放：除以 sqrt(3) ≈ 1.732，得到 [[0.58, 0.58], [0, 0.58]]",
+        "step3": "softmax 归一化：attn ≈ [[0.50, 0.50], [0.36, 0.64]]",
+        "step4": "加权求和：output ≈ [[1.50, 2.00], [1.28, 2.32]]"
+      },
+      "correct_answer": [[1.50, 2.00], [1.28, 2.32]],
+      "tolerance": 0.1,
+      "explanation": "按照缩放点积注意力的计算步骤，依次完成矩阵乘法、缩放、softmax 和加权求和。",
+      "score": 20
+    }
+  ],
+  "total_score": 90,
+  "passing_score": 54,
+  "feedback": {
+    "excellent": "太棒了！你对 Transformer 的自注意力机制掌握得非常扎实，可以继续学习更复杂的变体（如 Linformer、Performer）了。",
+    "good": "做得不错！建议再复习一下多头注意力的实现细节，尝试手写一个完整的 MultiHeadAttention 类。",
+    "needs_improvement": "建议先回顾自注意力机制的基本原理，理解 Q、K、V 的含义，然后再尝试代码实现。可以参考知识库中的 04_Transformer.md 文档。"
+  }
+}

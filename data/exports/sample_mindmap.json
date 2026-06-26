@@ -1,0 +1,191 @@
+{
+  "mindmap_id": "mm_cnn_001",
+  "title": "卷积神经网络（CNN）知识思维导图",
+  "description": "涵盖 CNN 的基础概念、核心组件、经典架构和应用领域",
+  "generated_at": "2024-12-20T10:00:00Z",
+  "root": {
+    "id": "root",
+    "label": "卷积神经网络（CNN）",
+    "children": [
+      {
+        "id": "node_1",
+        "label": "卷积层",
+        "type": "core",
+        "children": [
+          {
+            "id": "node_1_1",
+            "label": "卷积操作",
+            "children": [
+              {"id": "node_1_1_1", "label": "卷积核（Filter/Kernel）", "type": "concept"},
+              {"id": "node_1_1_2", "label": "局部感受野", "type": "concept"},
+              {"id": "node_1_1_3", "label": "权值共享", "type": "concept"}
+            ]
+          },
+          {
+            "id": "node_1_2",
+            "label": "关键参数",
+            "children": [
+              {"id": "node_1_2_1", "label": "卷积核大小（3×3, 5×5）", "type": "parameter"},
+              {"id": "node_1_2_2", "label": "步长 Stride", "type": "parameter"},
+              {"id": "node_1_2_3", "label": "填充 Padding", "type": "parameter"},
+              {"id": "node_1_2_4", "label": "输出尺寸计算公式", "type": "formula"}
+            ]
+          },
+          {
+            "id": "node_1_3",
+            "label": "多通道卷积",
+            "children": [
+              {"id": "node_1_3_1", "label": "输入通道数", "type": "parameter"},
+              {"id": "node_1_3_2", "label": "输出通道数（卷积核个数）", "type": "parameter"},
+              {"id": "node_1_3_3", "label": "1×1 卷积（通道维度变换）", "type": "concept"}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "node_2",
+        "label": "池化层",
+        "type": "core",
+        "children": [
+          {"id": "node_2_1", "label": "最大池化 Max Pooling", "type": "operation"},
+          {"id": "node_2_2", "label": "平均池化 Avg Pooling", "type": "operation"},
+          {"id": "node_2_3", "label": "全局平均池化 GAP", "type": "operation"},
+          {"id": "node_2_4", "label": "作用：降维、平移不变性", "type": "concept"}
+        ]
+      },
+      {
+        "id": "node_3",
+        "label": "经典架构",
+        "type": "architecture",
+        "children": [
+          {
+            "id": "node_3_1",
+            "label": "LeNet-5（1998）",
+            "type": "model",
+            "children": [
+              {"id": "node_3_1_1", "label": "手写数字识别", "type": "application"},
+              {"id": "node_3_1_2", "label": "卷积-池化范式", "type": "concept"}
+            ]
+          },
+          {
+            "id": "node_3_2",
+            "label": "AlexNet（2012）",
+            "type": "model",
+            "children": [
+              {"id": "node_3_2_1", "label": "ReLU 激活函数", "type": "component"},
+              {"id": "node_3_2_2", "label": "Dropout 正则化", "type": "component"},
+              {"id": "node_3_2_3", "label": "ImageNet 竞赛冠军", "type": "milestone"}
+            ]
+          },
+          {
+            "id": "node_3_3",
+            "label": "VGGNet（2014）",
+            "type": "model",
+            "children": [
+              {"id": "node_3_3_1", "label": "全部使用 3×3 卷积核", "type": "design"},
+              {"id": "node_3_3_2", "label": "VGG-16 / VGG-19", "type": "variant"}
+            ]
+          },
+          {
+            "id": "node_3_4",
+            "label": "ResNet（2015）",
+            "type": "model",
+            "children": [
+              {"id": "node_3_4_1", "label": "残差连接 Skip Connection", "type": "innovation"},
+              {"id": "node_3_4_2", "label": "解决梯度消失问题", "type": "advantage"},
+              {"id": "node_3_4_3", "label": "ResNet-50/101/152", "type": "variant"}
+            ]
+          },
+          {
+            "id": "node_3_5",
+            "label": "其他重要架构",
+            "children": [
+              {"id": "node_3_5_1", "label": "Inception（GoogLeNet）", "type": "model"},
+              {"id": "node_3_5_2", "label": "MobileNet（轻量化）", "type": "model"},
+              {"id": "node_3_5_3", "label": "EfficientNet", "type": "model"}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "node_4",
+        "label": "其他重要组件",
+        "type": "component",
+        "children": [
+          {"id": "node_4_1", "label": "批归一化 BatchNorm", "type": "technique"},
+          {"id": "node_4_2", "label": "Dropout", "type": "technique"},
+          {"id": "node_4_3", "label": "激活函数（ReLU、LeakyReLU）", "type": "technique"},
+          {"id": "node_4_4", "label": "全连接层（分类头）", "type": "component"}
+        ]
+      },
+      {
+        "id": "node_5",
+        "label": "应用领域",
+        "type": "application",
+        "children": [
+          {
+            "id": "node_5_1",
+            "label": "图像分类",
+            "children": [
+              {"id": "node_5_1_1", "label": "ImageNet", "type": "dataset"},
+              {"id": "node_5_1_2", "label": "CIFAR-10/100", "type": "dataset"},
+              {"id": "node_5_1_3", "label": "MNIST", "type": "dataset"}
+            ]
+          },
+          {
+            "id": "node_5_2",
+            "label": "目标检测",
+            "children": [
+              {"id": "node_5_2_1", "label": "YOLO 系列", "type": "model"},
+              {"id": "node_5_2_2", "label": "Faster R-CNN", "type": "model"},
+              {"id": "node_5_2_3", "label": "SSD", "type": "model"}
+            ]
+          },
+          {
+            "id": "node_5_3",
+            "label": "图像分割",
+            "children": [
+              {"id": "node_5_3_1", "label": "FCN", "type": "model"},
+              {"id": "node_5_3_2", "label": "U-Net", "type": "model"},
+              {"id": "node_5_3_3", "label": "Mask R-CNN", "type": "model"}
+            ]
+          },
+          {
+            "id": "node_5_4",
+            "label": "其他应用",
+            "children": [
+              {"id": "node_5_4_1", "label": "人脸识别", "type": "application"},
+              {"id": "node_5_4_2", "label": "医学影像分析", "type": "application"},
+              {"id": "node_5_4_3", "label": "自动驾驶（视觉感知）", "type": "application"},
+              {"id": "node_5_4_4", "label": "风格迁移", "type": "application"}
+            ]
+          }
+        ]
+      },
+      {
+        "id": "node_6",
+        "label": "PyTorch 实现要点",
+        "type": "implementation",
+        "children": [
+          {"id": "node_6_1", "label": "nn.Conv2d", "type": "api"},
+          {"id": "node_6_2", "label": "nn.MaxPool2d", "type": "api"},
+          {"id": "node_6_3", "label": "nn.BatchNorm2d", "type": "api"},
+          {"id": "node_6_4", "label": "特征图尺寸计算", "type": "formula"},
+          {"id": "node_6_5", "label": "迁移学习 torchvision.models", "type": "technique"}
+        ]
+      }
+    ]
+  },
+  "metadata": {
+    "total_nodes": 58,
+    "max_depth": 4,
+    "node_types": {
+      "core": "核心概念（蓝色）",
+      "architecture": "架构（绿色）",
+      "application": "应用（橙色）",
+      "implementation": "实现（紫色）"
+    },
+    "suggested_display": "radial",
+    "notes": "建议学生重点复习 ResNet 残差连接部分，这是考试重点。"
+  }
+}

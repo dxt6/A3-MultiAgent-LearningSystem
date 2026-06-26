@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手绘速写风图标测试</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 24px;
+      color: #ffffff;
+    }
+    .subtitle {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #888;
+      font-size: 14px;
+    }
+    .section {
+      margin-bottom: 40px;
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .section-title {
+      font-size: 16px;
+      color: #a0a0ff;
+      margin-bottom: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #2a2a4a;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 15px;
+    }
+    .icon-card {
+      background: #0f3460;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      transition: all 0.2s;
+      border: 1px solid #2a2a4a;
+    }
+    .icon-card:hover {
+      background: #1a4a7a;
+      transform: scale(1.05);
+      border-color: #5a5aff;
+    }
+    .icon-card svg {
+      width: 48px;
+      height: 48px;
+      display: block;
+      margin: 0 auto 8px;
+    }
+    .icon-name {
+      font-size: 11px;
+      color: #aaa;
+      word-break: break-all;
+    }
+    .dark-bg { background: #0a0a1a; }
+    .light-bg {
+      background: #f0f0f0;
+      color: #333;
+    }
+    .light-bg .icon-card {
+      background: #ffffff;
+      border-color: #ddd;
+    }
+    .light-bg .icon-card svg {
+      filter: invert(0);
+    }
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 8px 16px;
+      background: #5a5aff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleBg()">切换背景</button>
+  <h1>✏️ 手绘速写风图标集</h1>
+  <p class="subtitle">全部白色单色线条 · 线条抖动 · 粗细不均 · 带毛边效果</p>
+
+  <div class="section">
+    <div class="section-title">🏠 首页模块图标（6个）</div>
+    <div class="grid" id="section1"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🧠 学习画像模块图标（4个）</div>
+    <div class="grid" id="section2"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📦 资源生成模块图标（5个）</div>
+    <div class="grid" id="section3"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🗺️ 路径规划模块图标（4个）</div>
+    <div class="grid" id="section4"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">✅ 质量评估模块图标（4个）</div>
+    <div class="grid" id="section5"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📌 侧边栏导航图标（5个）</div>
+    <div class="grid" id="section6"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">➕ 额外补充图标（12个）</div>
+    <div class="grid" id="section7"></div>
+  </div>
+
+  <script src="handdrawn_icons.js"></script>
+  <script>
+    const sections = {
+      section1: ['robot', 'book_open', 'target', 'building', 'rocket', 'info'],
+      section2: ['brain', 'chat', 'user', 'card'],
+      section3: ['books', 'gear', 'lightning', 'download', 'file'],
+      section4: ['map', 'clock', 'chart_bar', 'flag'],
+      section5: ['check', 'chart_line', 'magnifier', 'star'],
+      section6: ['nav_home', 'nav_brain', 'nav_book', 'nav_map', 'nav_check'],
+      section7: ['arrow_right', 'arrow_down', 'close', 'menu', 'search', 'settings', 'bell', 'refresh', 'lock', 'cloud', 'heart', 'pencil', 'bulb', 'link', 'warning']
+    };
+
+    function renderIcons() {
+      for (const [sectionId, iconNames] of Object.entries(sections)) {
+        const container = document.getElementById(sectionId);
+        container.innerHTML = '';
+        for (const name of iconNames) {
+          if (HANDDRAWN_ICONS[name]) {
+            const card = document.createElement('div');
+            card.className = 'icon-card';
+            // 替换 currentColor 为 white 以便在深色背景可见
+            const svg = HANDDRAWN_ICONS[name].replace(/currentColor/g, '#ffffff');
+            card.innerHTML = svg + `<div class="icon-name">${name}</div>`;
+            container.appendChild(card);
+          } else {
+            const card = document.createElement('div');
+            card.className = 'icon-card';
+            card.innerHTML = `<div style="color:#f44;font-size:11px;">缺失: ${name}</div>`;
+            container.appendChild(card);
+          }
+        }
+      }
+    }
+
+    function toggleBg() {
+      document.body.classList.toggle('light-bg');
+    }
+
+    renderIcons();
+  </script>
+</body>
+</html>
